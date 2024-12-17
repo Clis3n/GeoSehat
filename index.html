@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="image/logo/iconWeb.png">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <!-- link css -->
+    <link href="https://unpkg.com/leaflet/dist/leaflet.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- Javascript -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <title>GeoSehat.co</title>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav>
+        <div class="navContainer d-flex justify-content-between align-items-center">
+            <div class="container d-flex align-items-center">
+                <a class="logoGeo fs-5 text-decoration-none" href="#"><span>Geo</span>Sehat.co</a>
+                <div class="textContainer d-flex">
+                    <a class="text-black text-decoration-none" href="#section1">Beranda</a>
+                    <a class="text-black text-decoration-none" href="#section2">Profil</a>
+                    <a class="text-black text-decoration-none" href="#section3">Wilayah Persebaran</a>
+                    <a class="text-black text-decoration-none" href="#section4">Laporan Persebaran</a>
+                </div>
+            </div>
+            <a href="https://github.com/Clis3n" target="_blank"><button class="btn" type="button">Tentang
+                    Saya</button></a>
+        </div>
+    </nav>
+
+    <!-- Section Page1 -->
+    <section id="section1" class="page1">
+        <div class="image-container">
+            <img class="backgroundImage img-fluid" src="image/doctorImage.jpg" alt="doctorImage">
+            <div class="image-overlay">
+                <h1 class="image-title">Hidup sehat dimulai dengan informasi yang tepat</h1>
+                <p class="image-paragraph">“Perawatan yang cepat dan efektif untuk menjaga kualitas hidup yang lebih
+                    baik. Pengetahuan yang akurat tentang sarana kesehatan di sekitar Anda memberikan kemudahan lebih
+                    mendalam.”</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Page2 -->
+    <section id="section2" class="page2 hidden">
+        <div class="logos">
+            <div class="logoSlide">
+                <a href="https://www.bpjs-kesehatan.go.id/" target="_blank"><img src="image/logo/bpjs.png"
+                        alt="Logo BPJS"></a>
+                <a href="https://ugm.ac.id/" target="_blank"><img src="image/logo/ugm.png" alt="Logo UGM"></a>
+                <a href="https://surabaya.telkomuniversity.ac.id/" target="_blank"><img src="image/logo/telkom.png"
+                        alt="Logo Telkom"></a>
+                <a href="https://www.kemkes.go.id/id/home" target="_blank"><img src="image/logo/kemenkes.png"
+                        alt="Logo Kemenkes"></a>
+            </div>
+        </div>
+        <div class="textContainer">
+            <div class="text">
+                <div class="textContent">
+                    <h1>WebGIS</h1>
+                    <p>WebGIS ini dirancang untuk membantu pengguna, baik masyarakat umum maupun pemerintah daerah,
+                        dalam mengakses informasi mengenai lokasi sarana kesehatan yang tersebar di seluruh Kota
+                        Surabaya.
+                        Dengan adanya peta ini, diharapkan dapat mempermudah masyarakat dalam menemukan fasilitas
+                        kesehatan
+                        seperti rumah sakit umum, rumah sakit khusus, apotek, dan puskesmas, sekaligus mendukung
+                        perencanaan
+                        pembangunan infrastruktur kesehatan yang lebih baik.</p>
+                    <a href="#section3"><button type="button" class="btn btn-dark px-4 py-2">Wilayah
+                            Persebaran</button></a>
+                </div>
+                <img class="boxImage rounded-5" src="image/gedung.jpg" height="523px" width="350px">
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Page3 -->
+    <section class="page3" id="section3">
+        <h1 class="text-center">
+            Peta Persebaran Sarana Kesehatan
+        </h1>
+        <div id="map">
+        </div>
+    </section>
+
+    <!-- Section Page4 -->
+    <section id="section4" class="page4">
+        <div class="container my-4">
+            <h2 class="text-center">Laporan Persebaran Sarana Kesehatan</h2>
+            <div id="data-tabel" class="mb-4"></div>
+
+            <!-- Button Add Data -->
+            <button id="addDataBtn" class="btn btn-success mb-4">Add Data</button>
+
+            <!-- Form Tambah/Edit Data -->
+            <form id="dataForm" style="display: none;">
+                <input type="hidden" id="id" name="id">
+                <div class="mb-3">
+                    <label for="jenis_sarana" class="form-label">Jenis Sarana Kesehatan</label>
+                    <select id="jenis_sarana" name="jenis_sarana" class="form-select" required>
+                        <option value="Rumah Sakit Khusus">Rumah Sakit Khusus</option>
+                        <option value="Rumah Sakit Umum">Rumah Sakit Umum</option>
+                        <option value="Apotek">Apotek</option>
+                        <option value="Puskesmas">Puskesmas</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="latitude" class="form-label">Latitude</label>
+                    <input type="number" step="any" id="latitude" name="latitude" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="longitude" class="form-label">Longitude</label>
+                    <input type="number" step="any" id="longitude" name="longitude" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Simpan</button>
+                <button type="reset" class="btn btn-secondary">Batal</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Javascript -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</body>
+
+</html>

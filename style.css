@@ -1,0 +1,329 @@
+* {
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'poppins', sans-serif;
+}
+
+body {
+  padding-top: 80px;
+}
+
+section {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+section.hidden {
+  display: none;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 10px 5rem;
+  transition: background 0.3s ease;
+}
+
+nav .navContainer {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav .navContainer .container {
+  display: flex;
+  align-items: center;
+}
+
+nav .navContainer .container .textContainer a {
+  position: relative;
+  color: black;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+nav .navContainer .container .textContainer a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #0090ff;
+  transition: width 0.3s ease-in-out;
+}
+
+nav .navContainer .container .textContainer a:hover::after {
+  width: 100%;
+}
+
+nav .navContainer .container .textContainer a:hover {
+  color: #000000;
+}
+
+nav .navContainer .container .textContainer a.active-link::after {
+  width: 100%;
+}
+
+nav .navContainer .container .textContainer {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-left: 3rem;
+}
+
+nav .navContainer .container .logoGeo {
+  font-weight: 600;
+  color: #0090ff;
+}
+
+nav .navContainer .container .logoGeo span {
+  color: #5eff00;
+}
+
+nav .navContainer .btn {
+  font-weight: 600;
+  white-space: nowrap;
+  text-align: center;
+  padding: 10px 20px;
+  display: inline-block;
+  background-color: black;
+  color: #fff;
+}
+
+/* page1 */
+.page1 {
+  margin-left: 5rem;
+  margin-right: 5rem;
+}
+
+.page1 .image-container .backgroundImage {
+  width: 100%;
+  height: 811px;
+  display: block;
+  margin-bottom: 4rem;
+  border-radius: 50px;
+  object-fit: cover;
+}
+
+.page1 .image-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.image-title {
+  margin-right: 12rem;
+  margin-left: 12rem;
+  font-size: 50px;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.image-paragraph {
+  font-size: 25px;
+  font-weight: normal;
+  color: white;
+  line-height: 1.5;
+  margin-right: 12rem;
+  margin-left: 12rem;
+}
+
+/* section2 */
+.page2 {
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 5rem;
+}
+
+.page2 .logos {
+  overflow: hidden;
+  padding: 60px 0;
+  white-space: nowrap;
+  position: relative;
+}
+
+.page2 .logos .logoSlide img {
+  height: 50px;
+  margin: 0 100px;
+}
+
+.page2 .textContainer .text {
+  display: flex;
+  align-items: center;
+}
+
+.page2 .textContainer .text img {
+  margin-right: 5rem;
+}
+
+.page2 .textContainer .text .textContent {
+  margin-left: 5rem;
+  margin-right: 15rem;
+}
+
+.page2 .textContainer .text .textContent h1 {
+  font-size: 30px;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.page2 .textContainer .text .textContent p {
+  font-size: 20px;
+}
+
+.page2 .textContainer .text .textContent .btn {
+  margin-top: 2rem;
+}
+
+/* section2 end */
+
+@media (max-width: 768px) {
+
+  .image-title,
+  .image-paragraph {
+    margin-left: 2rem;
+    margin-right: 2rem;
+    font-size: 28px;
+    /* Sesuaikan ukuran font */
+  }
+
+  .image-title {
+    font-size: 32px;
+  }
+
+  .image-paragraph {
+    font-size: 18px;
+  }
+}
+
+/* Section 3 */
+#map {
+  width: 90%;
+  height: 500px;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  margin: 0 auto;
+}
+
+.legend-toggle {
+  background: #fff;
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 5px;
+}
+
+.legend {
+  background: #fff;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.legend h4 {
+  margin: 0 0 10px 0;
+}
+
+.legend img {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.split {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+/* section 3 */
+.page3 {
+  margin-top: 2rem;
+}
+
+.page3 h1 {
+  font-size: 25px;
+  margin-bottom: 2rem;
+}
+
+/* section 4 */
+.page4 .container .tombol {
+  display: flex;
+  justify-content: end;
+  gap: 1rem;
+}
+
+#healthFacilitiesChart {
+  width: 100%;
+  height: 400px;
+}
+
+/* CSS for the floating window */
+.floating-window {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  z-index: 1000;
+}
+
+.floating-window .close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+#dataWindow {
+  position: fixed; /* Tetap di posisi layar */
+  top: 50%; /* Posisikan di tengah layar secara vertikal */
+  left: 50%; /* Posisikan di tengah layar secara horizontal */
+  transform: translate(-50%, -50%); /* Pusatkan elemen */
+  background-color: #fff; /* Warna latar belakang */
+  padding: 20px; /* Jarak dalam elemen */
+  border: 1px solid #ccc; /* Tambahkan border */
+  border-radius: 8px; /* Sudut melengkung */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Tambahkan bayangan */
+  z-index: 1000; /* Pastikan berada di atas elemen lain */
+  display: none; /* Sembunyikan secara default */
+}
+
+/* Tambahkan overlay untuk efek dim layar */
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Warna semi-transparan */
+  z-index: 999; /* Di bawah floating window */
+  display: none; /* Sembunyikan secara default */
+}
