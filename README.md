@@ -20,4 +20,9 @@ Dinas Kesehatan Indonesia (untuk data rumah sakit dan puskesmas)
 Data Apotek dan Sarana Kesehatan dari Geoportal Kesehatan Indonesia
 OpenStreetMap untuk peta dasar.
 Fitur Web
+![Dashboard (1)](https://github.com/user-attachments/assets/936f54e3-a494-44c7-b333-5b2b425737fb)
+
 ![Laporan Persebaran](https://github.com/user-attachments/assets/f25abdc6-52b1-4821-badc-936ca5f8adf6)
+
+![Laporan Persebaran (1)](https://github.com/user-attachments/assets/26683538-e675-4300-9192-d305a3ce4e8b)
+
